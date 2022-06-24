@@ -37,7 +37,7 @@ interface VideoProps {
 }
 
 export function Video(props: VideoProps) {
-  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
+  const { data } = useQuery(GET_LESSON_BY_SLUG_QUERY, {
     variables: {
       slug: props.lessonSlug,
     }
@@ -56,7 +56,7 @@ export function Video(props: VideoProps) {
       <div className="flex justify-center bg-black">
         <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
           <Player>
-            <Youtube videoId={data.lesson.videoId} />
+            <Youtube videoId={data.videoId} />
             <DefaultUi />
           </Player>
         </div>
@@ -66,20 +66,20 @@ export function Video(props: VideoProps) {
         <div className="flex items-start gap-16">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">
-              {data.lesson.title}
+              {data.title}
             </h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
-              {data.lesson.description}
+              {data.description}
             </p>
             <div className="flex items-center gap-4 mt-6">
               <img 
                 className="h-16 w-16 rounded-full border-2 border-blue-500"
-                src={data.lesson.teacher.avatarURL}
-                alt={data.lesson.teacher.name} 
+                src={data.teacher.avatarURL}
+                alt={data.teacher.name} 
               />
               <div className="leading-relaxed">
-                <strong className="font-bold text-2xl block">{data.lesson.teacher.name}</strong>
-                <span className="text-gray-200 text-sm block">{data.lesson.teacher.bio}</span>
+                <strong className="font-bold text-2xl block">{data.teacher.name}</strong>
+                <span className="text-gray-200 text-sm block">{data.teacher.bio}</span>
               </div>
             </div>
           </div>

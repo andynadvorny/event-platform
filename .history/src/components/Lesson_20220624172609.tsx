@@ -41,6 +41,6 @@ export function Lesson(props: LessonProps) {
           {props.title}
         </strong>
       </div>
-    </Link>
+    </a>
   )
 }
