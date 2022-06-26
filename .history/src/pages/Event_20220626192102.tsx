@@ -14,7 +14,7 @@ export function Event() {
         <div className="flex-1">
           { slug 
             ? <Video lessonSlug={slug} /> 
-            : <div className="h-screen"/>
+            : <div className="flex-1"/>
           }
           <Footer />
         </div>
